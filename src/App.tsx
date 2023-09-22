@@ -1,35 +1,34 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// App.tsx (main app component)
+import React, { useState } from "react";
+import Header from "./components/Header";
+import LandingPage from "./components/LandingPage";
+import RecipientComponent from "./components/RecipientComponent";
+import ReviewComponent from "./components/ReviewComponent";
+import PayComponent from "./components/PayComponent";
+import "../node_modules/flag-icon-css/css/flag-icons.min.css";
 
-function App() {
-  const [count, setCount] = useState(0)
+const App: React.FC = () => {
+  const [currentStep, setCurrentStep] = useState(1); // 1 for Amount, 2 for Recipient, etc.
+
+  const proceedToNextStep = () => {
+    if (currentStep < 4) {
+      setCurrentStep((prev) => prev + 1);
+    }
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div>
+      <Header currentStep={currentStep} />
+      <div className="container mt-5">
+        {currentStep === 1 && <LandingPage proceed={proceedToNextStep} />}
+        {currentStep === 2 && (
+          <RecipientComponent proceed={proceedToNextStep} />
+        )}
+        {currentStep === 3 && <ReviewComponent proceed={proceedToNextStep} />}
+        {currentStep === 4 && <PayComponent proceed={proceedToNextStep} />}
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    </div>
+  );
+};
 
-export default App
+export default App;

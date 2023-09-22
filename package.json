@@ -1,5 +1,5 @@
 {
-  "name": "123transfer",
+  "name": "123deposit",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -7,13 +7,17 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "css:watch": "tailwindcss -i ./src/App.css -o ./public/tailwind.vendor.css --watch"
   },
   "dependencies": {
     "autoprefixer": "^10.4.15",
+    "bootstrap": "^5.3.2",
+    "flag-icon-css": "^4.1.7",
     "postcss": "^8.4.30",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-flag-icon-css": "^1.0.25",
     "tailwindcss": "^3.3.3"
   },
   "devDependencies": {
@@ -26,6 +30,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
     "typescript": "^5.0.2",
-    "vite": "^4.4.5"
+    "vite": "^4.4.5",
+    "vite-plugin-windicss": "^1.9.1"
   }
 }
