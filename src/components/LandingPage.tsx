@@ -1,57 +1,71 @@
+// LandingPage.tsx
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const LandingPage = ({ proceed }) => {
+const LandingPage: React.FC = () => {
   const [amountCAD, setAmountCAD] = useState<number | "">("");
   const [amountINR, setAmountINR] = useState<number | "">("");
-  const conversionRate = 63.02; // Updated conversion rate
+  const conversionRate = 63.02;
+  const navigate = useNavigate();
 
-  const handleAmountCADChange = (e) => {
-    const newValue = e.target.value;
+  const handleAmountCADChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newValue = parseFloat(e.target.value) || "";
     setAmountCAD(newValue);
     const inrValue = (newValue * conversionRate).toFixed(2);
     setAmountINR(inrValue);
   };
 
-  const handleAmountINRChange = (e) => {
-    const newValue = e.target.value;
+  const handleAmountINRChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newValue = parseFloat(e.target.value) || "";
     setAmountINR(newValue);
     const cadValue = (newValue / conversionRate).toFixed(2);
     setAmountCAD(cadValue);
   };
 
+  const isValidAmount = amountCAD && amountINR;
+
   return (
     <div className="landing-page-container">
-      <div className="content-container">
-        <div className="label-text">You send</div>
-        <div className="input-section">
-          <span className="flag-icon flag-icon-ca"></span>
-          <input
-            type="number"
-            className="input-field"
-            placeholder="0.00"
-            value={amountCAD}
-            onChange={handleAmountCADChange}
-          />
-          <span className="currency-denomination">CAD</span>
+      <div className="currency-inputs">
+        <div className="input-group">
+          <label htmlFor="amountCAD">You Send</label>
+          <div className="input-wrapper">
+            <span className="currency-flag">🇨🇦</span>
+            <input
+              type="number"
+              id="amountCAD"
+              className="cad-input"
+              value={amountCAD}
+              onChange={handleAmountCADChange}
+              placeholder="0.00"
+              style={{ width: "100%" }}
+            />
+            <span className="currency-symbol">CAD</span>
+          </div>
         </div>
-        <div className="label-text">They receive</div>
-        <div className="input-section">
-          <span className="flag-icon flag-icon-in"></span>
-          <input
-            type="number"
-            className="input-field"
-            placeholder="0.00"
-            value={amountINR}
-            onChange={handleAmountINRChange}
-          />
-          <span className="currency-denomination">INR</span>
-        </div>
-        <div className="btn-container">
-          <button className="btn-continue" onClick={proceed}>
-            Continue
-          </button>
+        <div className="input-group">
+          <label htmlFor="amountINR">They Receive</label>
+          <div className="input-wrapper">
+            <span className="currency-flag">🇮🇳</span>
+            <input
+              type="number"
+              id="amountINR"
+              value={amountINR}
+              onChange={handleAmountINRChange}
+              placeholder="0.00"
+              style={{ width: "100%" }}
+            />
+            <span className="currency-symbol">INR</span>
+          </div>
         </div>
       </div>
+      <button
+        className="btn-continue"
+        onClick={() => navigate("/delivery")}
+        disabled={!isValidAmount}
+      >
+        Continue
+      </button>
     </div>
   );
 };

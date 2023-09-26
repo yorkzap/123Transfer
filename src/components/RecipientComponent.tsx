@@ -1,14 +1,11 @@
-// RecipientComponent.tsx
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-interface Props {
-  proceed: () => void;
-}
-
-const RecipientComponent: React.FC<Props> = ({ proceed }) => {
+const RecipientComponent: React.FC = () => {
   const [recipientName, setRecipientName] = useState("");
   const [bankAccount, setBankAccount] = useState("");
   const [phone, setPhone] = useState("");
+  const navigate = useNavigate();
 
   return (
     <div>
@@ -40,7 +37,7 @@ const RecipientComponent: React.FC<Props> = ({ proceed }) => {
           onChange={(e) => setPhone(e.target.value)}
         />
       </div>
-      <button className="btn btn-primary" onClick={proceed}>
+      <button className="btn btn-primary" onClick={() => navigate("/review")}>
         Next
       </button>
     </div>

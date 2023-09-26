@@ -1,19 +1,19 @@
 # App Development Roadmap
 
 ## 1. **Initial Setup**:
-- [ ] Project Initialization (If not done).
-- [ ] Install necessary libraries and tools (e.g., `react-router-dom`, `eslint`, `prettier`).
-- [ ] Setup your code style and linters.
+- [x] Project Initialization (If not done).
+- [x] Install necessary libraries and tools (e.g., `react-router-dom`, `eslint`, `prettier`).
+- [x] Setup your code style and linters.
 
 ## 2. **Architectural Decisions**:
-- [ ] Decide on a folder structure for your project.
-- [ ] Determine the state management solution (context, Redux, MobX, etc.).
-- [ ] Consider if SSR (using Next.js or another tool) would be beneficial for your project.
+- [x] Decide on a folder structure for your project.
+- [x] Determine the state management solution - Starting with React's Context API 
+- [x] Consider if SSR (using Next.js or another tool) would be beneficial for your project. - No
 
 ## 3. **Routing & Navigation**:
-- [ ] Integrate `react-router-dom`.
-- [ ] Create the main routes (e.g., LandingPage, Recipient, Review, Pay).
-- [ ] Implement lazy loading for each route.
+- [x] Integrate `react-router-dom`.
+- [x] Create the main routes (e.g., LandingPage, Recipient, Review, Pay).
+- [x] Implement lazy loading for each route.
 
 ## 4. **State Management**:
 - [ ] Set up Context API or your chosen state management solution.

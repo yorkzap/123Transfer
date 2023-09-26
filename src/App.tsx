@@ -1,33 +1,39 @@
-// App.tsx (main app component)
-import React, { useState } from "react";
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import Header from "./components/Header";
 import LandingPage from "./components/LandingPage";
-import RecipientComponent from "./components/RecipientComponent";
 import ReviewComponent from "./components/ReviewComponent";
 import PayComponent from "./components/PayComponent";
+import DeliveryMethodComponent from "./components/DeliveryMethodComponent";
+// Assuming RecipientComponent is imported from the correct path
+import RecipientComponent from "./components/RecipientComponent";
 import "../node_modules/flag-icon-css/css/flag-icons.min.css";
 
 const App: React.FC = () => {
-  const [currentStep, setCurrentStep] = useState(1); // 1 for Amount, 2 for Recipient, etc.
-
-  const proceedToNextStep = () => {
-    if (currentStep < 4) {
-      setCurrentStep((prev) => prev + 1);
-    }
-  };
-
   return (
-    <div>
-      <Header currentStep={currentStep} />
-      <div className="container mt-5">
-        {currentStep === 1 && <LandingPage proceed={proceedToNextStep} />}
-        {currentStep === 2 && (
-          <RecipientComponent proceed={proceedToNextStep} />
-        )}
-        {currentStep === 3 && <ReviewComponent proceed={proceedToNextStep} />}
-        {currentStep === 4 && <PayComponent proceed={proceedToNextStep} />}
+    <Router>
+      <div>
+        <Header />
+        <div className="container mt-5">
+          <Routes>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/delivery" element={<DeliveryMethodComponent />} />
+            <Route
+              path="/recipient"
+              element={<RecipientComponent />} 
+            />
+            <Route path="/review" element={<ReviewComponent />} />
+            <Route path="/pay" element={<PayComponent />} />
+            <Route path="/*" element={<Navigate to="/" />} />  {/* Redirect any unknown paths to home */}
+          </Routes>
+        </div>
       </div>
-    </div>
+    </Router>
   );
 };
 
