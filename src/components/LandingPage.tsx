@@ -1,6 +1,7 @@
-// LandingPage.tsx
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import CanadaFlag from '../assets/images/flags/3x2/CA.svg';
+import IndiaFlag from '../assets/images/flags/3x2/IN.svg';
 
 const LandingPage: React.FC = () => {
   const [amountCAD, setAmountCAD] = useState<number | "">("");
@@ -30,7 +31,7 @@ const LandingPage: React.FC = () => {
         <div className="input-group">
           <label htmlFor="amountCAD">You Send</label>
           <div className="input-wrapper">
-            <span className="currency-flag">🇨🇦</span>
+            <img src={CanadaFlag} alt="Canada Flag" className="currency-flag"/>
             <input
               type="number"
               id="amountCAD"
@@ -46,7 +47,7 @@ const LandingPage: React.FC = () => {
         <div className="input-group">
           <label htmlFor="amountINR">They Receive</label>
           <div className="input-wrapper">
-            <span className="currency-flag">🇮🇳</span>
+            <img src={IndiaFlag} alt="India Flag" className="currency-flag"/>
             <input
               type="number"
               id="amountINR"

@@ -2,7 +2,7 @@
 :root {
   --bg-color: #F1F1F3;
   --text-color: #323233;
-  --accent-color: #2797FE;
+  --accent-color: #0171E2;
   --border-color: #E0E0E0;
   --button-hover: #005fcb;
   --button-disabled: #A8A8A8;
@@ -42,7 +42,7 @@ body {
 .input-group label {
   display: block;
   margin-bottom: 5px;
-  font-size: 14px;
+  font-size: .75rem;
   font-weight: 400;
   color: var(--text-color);
 }
@@ -53,10 +53,8 @@ body {
   border: 1px solid var(--border-color);
   border-radius: 8px;
   overflow: hidden;
-  transition: border-color 0.3s ease-in-out;
 }
 
-.input-wrapper:hover,
 .input-wrapper:focus-within {
   border-color: var(--accent-color);
 }
@@ -64,38 +62,36 @@ body {
 .input-wrapper input {
   flex-grow: 1;
   border: none;
-  padding: 12px;
-  font-size: 16px;
+  padding: 16px;
+  font-size: 18px;
   outline: none;
-  transition: background-color 0.3s ease-in-out;
 }
 
 .currency-symbol,
-.currency-flag {
-  padding: 12px;
+.flag-icon {
+  padding: 16px;
   background-color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 18px;
 }
 
 .btn-continue {
-  background: linear-gradient(90deg, var(--accent-color), var(--button-hover));
+  background: var(--accent-color);
   border: none;
   border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   color: #ffffff;
   padding: 10px 20px;
   cursor: pointer;
-  transition: background 0.3s ease, box-shadow 0.3s ease;
+  transition: background 0.3s ease;
   width: 100%;
-  font-size: 16px;
+  font-size: 18px;
   margin-top: 20px;
 }
 
 .btn-continue:hover {
-  background: linear-gradient(90deg, var(--button-hover), var(--accent-color));
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+  background: var(--button-hover);
 }
 
 .btn-continue:disabled {
@@ -109,4 +105,277 @@ body {
       padding: 10px;
       max-width: 100%;
   }
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  appearance: none;
+  -webkit-appearance: none;
+  display: none;
+}
+
+#amountINR::placeholder {
+  color: black; /* Set the desired color, e.g., black */
+}
+
+/* styles.css */
+/* ...rest of your code */
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #fff;  /* added background color */
+}
+
+.input-wrapper input {
+  flex-grow: 1;
+  border: none;
+  padding: 16px;
+  font-size: 18px;
+  outline: none;
+  background-color: transparent;  /* ensure input field has no background color */
+}
+
+.currency-symbol,
+.flag-icon {
+  padding: 16px;
+  background-color: #fff;  /* consistent with input-wrapper background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  border: none;  /* remove any default border */
+}
+
+/* ...rest of your code */
+
+/* ...rest of your code */
+
+.currency-flag {
+  width: 1.5rem;
+  height: 1rem;
+  border-right: 1px solid var(--border-color);
+  background-color: #fff; /* consistent with input-wrapper background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  background-color: #fff;  /* added background color */
+}
+
+.input-wrapper input {
+  flex-grow: 1;
+  border: none;
+  padding: 1rem;
+  padding-left: 0; /* remove left padding to align text with flag */
+  font-size: 1.125rem;
+  outline: none;
+  background-color: transparent;  /* ensure input field has no background color */
+}
+
+.currency-symbol {
+  padding: 1rem;
+  background-color: #fff;  /* consistent with input-wrapper background */
+  border-left: 1px solid var(--border-color); /* added border to separate from input field */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.125rem;
+}
+
+/* ...rest of your code */
+/* ...rest of your code */
+
+.currency-flag {
+  width: 1.5rem;
+  height: 1rem;
+  border-right: 1px solid var(--border-color);
+  background-color: #fff; /* consistent with input-wrapper background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.5rem; /* added padding to give space around the flag */
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  background-color: #fff;  /* added background color */
+}
+
+.input-wrapper input {
+  flex-grow: 1;
+  border: none;
+  padding: 1rem;
+  padding-left: 0.5rem; /* adjusted left padding to align text with flag */
+  font-size: 1.125rem;
+  outline: none;
+  background-color: transparent;  /* ensure input field has no background color */
+}
+
+.currency-symbol,
+.currency-flag {
+  padding: 1rem;
+  padding-left: 0.5rem; /* adjusted left padding to match input left padding */
+  background-color: #fff;  /* consistent with input-wrapper background */
+  border: none;  /* remove any default border */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.125rem;
+}
+
+/* ...rest of your code */
+
+/* ...rest of your code */
+
+.currency-flag {
+  width: 1.5rem;
+  height: auto;  /* adjusted height to auto to maintain aspect ratio */
+  margin-right: 0.5rem;  /* added margin to give space around the flag */
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  background-color: #fff;  /* added background color */
+}
+
+.input-wrapper input {
+  flex-grow: 1;
+  border: none;
+  padding: 1rem;
+  font-size: 1.125rem;
+  outline: none;
+  background-color: transparent;  /* ensure input field has no background color */
+}
+
+.currency-symbol,
+.currency-flag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.125rem;
+  border: none;  /* remove any default border */
+}
+
+/* ...rest of your code */
+
+/* ...rest of your code */
+
+.currency-flag {
+  width: 1.5rem;
+  height: auto;  /* adjusted height to auto to maintain aspect ratio */
+  margin-right: 0.5rem;  /* added margin to give space around the flag */
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  background-color: #fff;  /* added background color */
+}
+
+.input-wrapper input {
+  flex-grow: 1;
+  border: none;
+  padding: 1rem;
+  font-size: 1.125rem;
+  outline: none;
+  background-color: transparent;  /* ensure input field has no background color */
+}
+
+.currency-symbol,
+.currency-flag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.125rem;
+  border: none;  /* remove any default border */
+}
+
+/* ...rest of your code */
+.currency-flag {
+  width: 1.5rem;
+  height: auto;  /* adjusted height to auto to maintain aspect ratio */
+  margin-right: 0.5rem;  /* added margin to give space around the flag */
+}
+
+.landing-page-container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.currency-inputs {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+
+.cad-input {
+  flex-grow: 1;
+  border: none;
+  outline: none;
+}
+
+.currency-symbol {
+  margin-left: 10px;
+}
+
+.btn-continue {
+  padding: 10px 20px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:disabled {
+      background-color: #aaa;
+      cursor: not-allowed;
+  }
+
+  &:hover {
+      background-color: #0056b3;
+  }
+}
+
+.currency-flag {
+  width: 1.5px;
+  height: 1px; 
+  margin-right: 10px;
 }

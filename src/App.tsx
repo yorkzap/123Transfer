@@ -12,7 +12,7 @@ import PayComponent from "./components/PayComponent";
 import DeliveryMethodComponent from "./components/DeliveryMethodComponent";
 // Assuming RecipientComponent is imported from the correct path
 import RecipientComponent from "./components/RecipientComponent";
-import "../node_modules/flag-icon-css/css/flag-icons.min.css";
+
 
 const App: React.FC = () => {
   return (
